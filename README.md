@@ -2,9 +2,11 @@
 
 ## usage
 
-const range_slider_integer = require('slider-integer')
+```js
+const range_slider_integer = require("slider-integer");
 
-const opts = { min: 0, max: 10 }
-const rsi = range_slider_integer(opts)
+const opts = { min: 0, max: 10 };
+const rsi = range_slider_integer(opts);
 
-document.body.append(rsi)
+document.body.append(rsi);
+```
