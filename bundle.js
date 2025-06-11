@@ -256,50 +256,52 @@ function get_theme () {
   `
 }
 },{}],4:[function(require,module,exports){
-const range = require('range-slider-ui')
-const integer = require('input-integer-ui')
+const range = require("range-slider-ui")
+const integer = require("input-integer-ui")
 
 module.exports = range_slider_integer
 
-function range_slider_integer (opts) {
+function range_slider_integer(opts) {
   const state = {}
-  
-  const el = document.createElement('div')
-  const shadow = el.attachShadow({ mode: 'closed' })
 
-  const rsi = document.createElement('div')
-  rsi.classList.add('rsi')
-  
+  const el = document.createElement("div")
+  const shadow = el.attachShadow({ mode: "closed" })
+
+  const rsi = document.createElement("div")
+  rsi.classList.add("rsi")
+
   const range_slider = range(opts, protocol)
   const input_integer = integer(opts, protocol)
+  const value_shower = document.createElement("span")
 
-  rsi.append(range_slider, input_integer)
+  rsi.append(range_slider, input_integer, value_shower)
 
-  const style = document.createElement('style')
+  const style = document.createElement("style")
   style.textContent = get_theme()
 
   shadow.append(rsi, style)
 
   return el
 
-  function protocol (message, notify) {
+  function protocol(message, notify) {
     const { from } = message
     state[from] = { value: 0, notify }
     return listen
   }
 
-  function listen (message) {
+  function listen(message) {
     const { from, type, data } = message
     state[from].value = data
-    if (type === 'update') {
+    if (type === "update") {
       var notify
-      if (from === 'range-0') notify = state['input-integer-0'].notify
-      else if (from === 'input-integer-0') notify = state['range-0'].notify
+      if (from === "range-0") notify = state["input-integer-0"].notify
+      else if (from === "input-integer-0") notify = state["range-0"].notify
       notify({ type, data })
+      value_shower.textContent = data
     }
   }
 
-  function get_theme () {
+  function get_theme() {
     return `
       .rsi {
         padding: 5%;
@@ -308,8 +310,8 @@ function range_slider_integer (opts) {
         align-items: center;
         justify-items: center;
       }
-    `
+    `;
   }
-
 }
+
 },{"input-integer-ui":2,"range-slider-ui":3}]},{},[1]);
