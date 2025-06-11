@@ -1,5 +1,8 @@
-const range_slider_integer = require("../src/index");
+const range_slider_integer = require('..')
 
-let opts = { min: 0, max: 100 };
-let rsi = range_slider_integer(opts);
-document.body.append(rsi);
+const opts = { min: 0, max: 10 }
+const rsi = range_slider_integer(opts)
+
+document.body.append(rsi)
+
+
