@@ -1,6 +1,6 @@
-# range-slider-integer
+# slider-integer
 
-## usage 
+## usage
 
 const range_slider_integer = require('range-slider-integer')
 
