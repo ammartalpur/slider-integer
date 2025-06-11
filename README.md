@@ -3,10 +3,10 @@
 ## usage
 
 ```js
-const range_slider_integer = require("slider-integer");
+const integer = require("input-integer-ui");
 
 const opts = { min: 0, max: 10 };
-const rsi = range_slider_integer(opts);
+const rsi = integer(opts);
 
 document.body.append(rsi);
 ```
