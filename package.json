@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "input-integer-ui": "^0.0.4",
-    "range-slider-ui": "^0.0.2"
+    "range-slider-ui": "^0.0.2",
+    "standardx": "^7.0.0"
   }
 }
